@@ -1,0 +1,48 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap');
+
+@theme {
+  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  
+  --color-background: #12121f;
+  --color-primary: #00dddd;
+  --color-secondary: #ffabf3;
+  --color-surface: #1f1e2b;
+  --color-surface-low: #1a1a27;
+  --color-surface-lowest: #0d0d19;
+  --color-on-surface: #e3e0f3;
+  --color-on-surface-variant: #cbc4ce;
+
+  --radius-lg: 2rem;
+  --radius-xl: 3rem;
+}
+
+@layer base {
+  body {
+    @apply bg-background text-on-surface font-sans antialiased selection:bg-primary/30;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-white/5 backdrop-blur-xl border border-white/10;
+  }
+  
+  .nebula-gradient {
+    background: radial-gradient(circle at 20% 30%, rgba(0, 221, 221, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(255, 171, 243, 0.08) 0%, transparent 40%);
+  }
+
+  .text-glow {
+    text-shadow: 0 0 20px rgba(0, 221, 221, 0.5);
+  }
+}
+
+@keyframes pulse-slow {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.05); }
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
